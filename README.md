@@ -181,7 +181,7 @@ Core concepts used throughout this doc:
 
 | Term                 | What it is                                | What it does                                                                                   |
 | -------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| MVCC                 | Multi-Version Concurrency Control         | Keeps multiple row versions so readers and writers never block each other                      |
+| [MVCC](docs/mvcc.md) | Multi-Version Concurrency Control         | Keeps multiple row versions so readers and writers never block each other                      |
 | WAL                  | Write-Ahead Log                           | Records every change to a durable log before the data files, enabling recovery and replication |
 | VACUUM               | Storage maintenance command               | Reclaims dead tuples left by MVCC and prevents transaction-ID wraparound                       |
 | DDL                  | Data Definition Language                  | CREATE, ALTER, DROP - changes schema; transactional so it can roll back                        |
