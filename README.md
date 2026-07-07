@@ -187,7 +187,7 @@ Core concepts used throughout this doc:
 | DDL                  | Data Definition Language                  | CREATE, ALTER, DROP - changes schema; transactional so it can roll back                        |
 | DML                  | Data Manipulation Language                | INSERT, UPDATE, DELETE - adds, changes, and removes rows in your tables                        |
 | PITR                 | Point-In-Time Recovery                    | Replays WAL to restore the database to any past second                                         |
-| GIN                  | Generalized Inverted Index                | Indexes the elements inside a value for fast containment lookups (arrays, JSONB, full-text)    |
+| [GIN](docs/gin.md)   | Generalized Inverted Index                | Indexes the elements inside a value for fast containment lookups (arrays, JSONB, full-text)    |
 | RLS                  | Row-Level Security                        | Filters which rows each user can read or modify via per-row policies                           |
 | CDC                  | Change Data Capture                       | Streams row-level changes out to other systems                                                 |
 | TOAST                | The Oversized-Attribute Storage Technique | Compresses and stores large values (>2KB) off-row                                              |
