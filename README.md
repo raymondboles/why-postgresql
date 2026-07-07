@@ -183,7 +183,7 @@ Core concepts used throughout this doc:
 | -------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | [MVCC](docs/mvcc.md) | Multi-Version Concurrency Control         | Keeps multiple row versions so readers and writers never block each other                      |
 | [WAL](docs/wal.md)   | Write-Ahead Log                           | Records every change to a durable log before the data files, enabling recovery and replication |
-| VACUUM               | Storage maintenance command               | Reclaims dead tuples left by MVCC and prevents transaction-ID wraparound                       |
+| [VACUUM](docs/vacuum.md) | Storage maintenance command           | Reclaims dead tuples left by MVCC and prevents transaction-ID wraparound                       |
 | DDL                  | Data Definition Language                  | CREATE, ALTER, DROP - changes schema; transactional so it can roll back                        |
 | DML                  | Data Manipulation Language                | INSERT, UPDATE, DELETE - adds, changes, and removes rows in your tables                        |
 | PITR                 | Point-In-Time Recovery                    | Replays WAL to restore the database to any past second                                         |
