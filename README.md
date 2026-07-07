@@ -190,7 +190,7 @@ Core concepts used throughout this doc:
 | [GIN](docs/gin.md)   | Generalized Inverted Index                | Indexes the elements inside a value for fast containment lookups (arrays, JSONB, full-text)    |
 | RLS                  | Row-Level Security                        | Filters which rows each user can read or modify via per-row policies                           |
 | CDC                  | Change Data Capture                       | Streams row-level changes out to other systems                                                 |
-| TOAST                | The Oversized-Attribute Storage Technique | Compresses and stores large values (>2KB) off-row                                              |
+| [TOAST](docs/toast.md) | The Oversized-Attribute Storage Technique | Compresses and stores large values (>2KB) off-row                                            |
 | FDW                  | Foreign Data Wrapper                      | Exposes external data sources as queryable tables                                              |
 | BRIN                 | Block Range Index                         | Stores per-block min/max for cheap scans of ordered data                                       |
 | GiST                 | Generalized Search Tree                   | Indexes geometry, ranges, and nearest-neighbor queries                                         |
@@ -361,7 +361,6 @@ PostgreSQL Performance Internals:
 - Vacuum internals - why PostgreSQL needs it, others don't
 - Autovacuum tuning - no equivalent in MySQL/SQL Server
 - Transaction ID wraparound - refuses ALL writes if not vacuumed (unique catastrophic failure mode)
-- TOAST - The Oversized-Attribute Storage Technique (unique)
 - Table and index bloat - PostgreSQL-specific problem
 - `pg_stat_statements` - vs SQL Server Query Store
 - JIT compilation - PostgreSQL 11+ unique feature
