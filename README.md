@@ -48,7 +48,7 @@ PostgreSQL) remain the default starting point for most applications.
 | Queries  | Short, frequent, row-level (INSERT/UPDATE/DELETE) | Long, complex, column-level (aggregations, scans) |
 | Schema   | Normalized (3NF)                                  | Denormalized (star/snowflake)                     |
 | Latency  | Milliseconds                                      | Seconds to minutes                                |
-| Examples | PostgreSQL, MySQL, SQL Server                     | BigQuery, Snowflake, ClickHouse                    |
+| Examples | PostgreSQL, MySQL, SQL Server                     | BigQuery, Snowflake, ClickHouse                   |
 
 PostgreSQL is OLTP-first, but handles moderate OLAP with window functions, Common Tables Expressions (CTEs), parallel
 queries, and materialized views. For heavy analytics, offload to a dedicated OLAP system.
@@ -179,24 +179,24 @@ index methods, and procedural languages.
 
 Core concepts used throughout this doc:
 
-| Term                 | What it is                                | What it does                                                                                   |
-| -------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [MVCC](docs/mvcc.md) | Multi-Version Concurrency Control         | Keeps multiple row versions so readers and writers never block each other                      |
-| [WAL](docs/wal.md)   | Write-Ahead Log                           | Records every change to a durable log before the data files, enabling recovery and replication |
-| [VACUUM](docs/vacuum.md) | Storage maintenance command           | Reclaims dead tuples left by MVCC and prevents transaction-ID wraparound                       |
-| DDL                  | Data Definition Language                  | CREATE, ALTER, DROP - changes schema; transactional so it can roll back                        |
-| DML                  | Data Manipulation Language                | INSERT, UPDATE, DELETE - adds, changes, and removes rows in your tables                        |
-| PITR                 | Point-In-Time Recovery                    | Replays WAL to restore the database to any past second                                         |
-| [GIN](docs/gin.md)   | Generalized Inverted Index                | Indexes the elements inside a value for fast containment lookups (arrays, JSONB, full-text)    |
-| RLS                  | Row-Level Security                        | Filters which rows each user can read or modify via per-row policies                           |
-| CDC                  | Change Data Capture                       | Streams row-level changes out to other systems                                                 |
-| [TOAST](docs/toast.md) | The Oversized-Attribute Storage Technique | Compresses and stores large values (>2KB) off-row                                            |
-| FDW                  | Foreign Data Wrapper                      | Exposes external data sources as queryable tables                                              |
-| BRIN                 | Block Range Index                         | Stores per-block min/max for cheap scans of ordered data                                       |
-| GiST                 | Generalized Search Tree                   | Indexes geometry, ranges, and nearest-neighbor queries                                         |
-| GUCs                 | Grand Unified Configuration               | Holds the parameters that tune server behavior                                                 |
-| JIT                  | Just-In-Time compilation                  | Compiles hot query expressions to machine code at runtime                                      |
-| RAG                  | Retrieval-Augmented Generation            | Uses vector search to feed context to an LLM                                                   |
+| Term                     | What it is                                | What it does                                                                                   |
+| ------------------------ | ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [MVCC](docs/mvcc.md)     | Multi-Version Concurrency Control         | Keeps multiple row versions so readers and writers never block each other                      |
+| [WAL](docs/wal.md)       | Write-Ahead Log                           | Records every change to a durable log before the data files, enabling recovery and replication |
+| [VACUUM](docs/vacuum.md) | Storage maintenance command               | Reclaims dead tuples left by MVCC and prevents transaction-ID wraparound                       |
+| DDL                      | Data Definition Language                  | CREATE, ALTER, DROP - changes schema; transactional so it can roll back                        |
+| DML                      | Data Manipulation Language                | INSERT, UPDATE, DELETE - adds, changes, and removes rows in your tables                        |
+| PITR                     | Point-In-Time Recovery                    | Replays WAL to restore the database to any past second                                         |
+| [GIN](docs/gin.md)       | Generalized Inverted Index                | Indexes the elements inside a value for fast containment lookups (arrays, JSONB, full-text)    |
+| RLS                      | Row-Level Security                        | Filters which rows each user can read or modify via per-row policies                           |
+| CDC                      | Change Data Capture                       | Streams row-level changes out to other systems                                                 |
+| [TOAST](docs/toast.md)   | The Oversized-Attribute Storage Technique | Compresses and stores large values (>2KB) off-row                                              |
+| FDW                      | Foreign Data Wrapper                      | Exposes external data sources as queryable tables                                              |
+| BRIN                     | Block Range Index                         | Stores per-block min/max for cheap scans of ordered data                                       |
+| GiST                     | Generalized Search Tree                   | Indexes geometry, ranges, and nearest-neighbor queries                                         |
+| GUCs                     | Grand Unified Configuration               | Holds the parameters that tune server behavior                                                 |
+| JIT                      | Just-In-Time compilation                  | Compiles hot query expressions to machine code at runtime                                      |
+| RAG                      | Retrieval-Augmented Generation            | Uses vector search to feed context to an LLM                                                   |
 
 ### Beginner
 
